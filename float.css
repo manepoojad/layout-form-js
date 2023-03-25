@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #6f3188;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+section {
+    height: 200px;
+
+}
+
+
+.left-navigation {
+    width: 15%;
+    background-color: gray;
+    float: left;
+    height: 200px;
+
+}
+
+nav ul {
+    list-style: circle;
+
+}
+
+.middle-section {
+    width: 70%;
+    float: left;
+    height: 200px;
+    background-color: cornflowerblue;
+}
+
+.right-navigation {
+    width: 15%;
+    float: left;
+    background-color: grey;
+    height: 200px;
+
+}
+
+
+
+
+
+footer {
+    background-color:deeppink;
+    padding: 10px;
+    text-align: center;
+    color: cyan;
+}
