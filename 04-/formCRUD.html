@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layoutForm.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Student form using semantic and layout using flex</h1>
+        </header>
+
+        <section class="section">
+            <nav class="left-navigation">
+                <ul>
+                    <h3>More about HTML</h3>
+                    <li><a href="#">w3schools</a></li>
+                    <li><a href="#">Wiki</a></li>
+                    <li><a href="#">html.spec</a></li>
+                </ul>
+            </nav>
+
+            <article class="main">
+                <h2 class="form-heading">Student Form</h2>
+                <form class="form-section">
+                    <div class="formfield">
+                        <label class="formlabel" for="firstName">First name:</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter first Name">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="lastName">Last name:</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter last Name"><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="fatherName">Father name:</label>
+                        <input type="text" id="fatherName" name="fatherName" placeholder="Enter father Name">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="motherName">Mother name:</label>
+                        <input type="text" id="motherName" name="motherName" placeholder="Enter mother Name"><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="dateOfBirth">Date of Birth:</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" placeholder="yyyy-mm-dd">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="gender">Gender:</label>
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="other">Other</label>
+                        <input type="radio" id="other" name="gender" value="other"><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="knownlanguage">Known Language:</label>
+                        <label for="english">English</label>
+                        <input type="checkbox" id="english" name="english" value="english">
+                        <label for="marathi">Marathi</label>
+                        <input type="checkbox" id="marathi" name="marathi" value="marathi">
+                        <label for="hindi">Hindi</label>
+                        <input type="checkbox" id="hindi" name="hindi" value="hindi">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="mobileNumber">Mobile Number:</label>
+                        <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number"><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="address">Address:</label>
+                        <textarea placeholder="Enter address"></textarea>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="District">District:</label>
+                        <textarea placeholder="Enter district"></textarea><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="state">State:</label>
+                        <input type="text" id="state" name="state" placeholder="Enter state">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="country">Country:</label>
+                        <input type="text" id="country" name="country" placeholder="Enter country"><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="pinCode">Pin Code:</label>
+                        <input type="text" id="pinCode" name="pinCode" placeholder="Enter pin code">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="course">Course Applied for:</label>
+                        <select name="course" id="course">
+                            <option value="science">Science</option>
+                            <option value="commerce">Com</option>
+                            <option value="art">Art</option>
+                        </select><br>
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="email">Email:</label>
+                        <input type="text" id="email" name="email" placeholder="Enter e-mail">
+                    </div>
+                    <div class="formfield">
+                        <label class="formlabel" for="password">Password:</label>
+                        <input type="text" id="password" name="password" placeholder="Enter password"><br>
+                    </div>
+                </form>
+                <div class="form-button">
+                    <input type="submit" value="Submit">
+                    <input type="Reset" value="Reset">
+                </div>
+
+            </article>
+            <aside class="right-navigation">
+                <h3 class="right-navigation-heading">Other Technology</h3>
+                <ul>
+                    <li>css</li>
+                    <li>JavaScript</li>
+                    <li>Bootstrap</li>
+                </ul>
+
+            </aside>
+
+        </section>
+        <footer class="footer">
+            All Rights Reserved
+        </footer>
+    </div>
+
+</body>
+
+</html>
