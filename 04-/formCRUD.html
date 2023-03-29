@@ -38,14 +38,6 @@
                         <input type="text" id="lastName" name="lastName" placeholder="Enter last Name"><br>
                     </div>
                     <div class="formfield">
-                        <label class="formlabel" for="fatherName">Father name:</label>
-                        <input type="text" id="fatherName" name="fatherName" placeholder="Enter father Name">
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="motherName">Mother name:</label>
-                        <input type="text" id="motherName" name="motherName" placeholder="Enter mother Name"><br>
-                    </div>
-                    <div class="formfield">
                         <label class="formlabel" for="dateOfBirth">Date of Birth:</label>
                         <input type="date" id="dateOfBirth" name="dateOfBirth" placeholder="yyyy-mm-dd">
                     </div>
@@ -59,37 +51,17 @@
                         <input type="radio" id="other" name="gender" value="other"><br>
                     </div>
                     <div class="formfield">
-                        <label class="formlabel" for="knownlanguage">Known Language:</label>
+                        <label class="formlabel" for="knownLanguage">Known Language:</label>
                         <label for="english">English</label>
-                        <input type="checkbox" id="english" name="english" value="english">
+                        <input type="checkbox" id="english" name="knownLanguage" value="english">
                         <label for="marathi">Marathi</label>
-                        <input type="checkbox" id="marathi" name="marathi" value="marathi">
+                        <input type="checkbox" id="marathi" name="knownLanguage" value="marathi">
                         <label for="hindi">Hindi</label>
-                        <input type="checkbox" id="hindi" name="hindi" value="hindi">
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="mobileNumber">Mobile Number:</label>
-                        <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number"><br>
+                        <input type="checkbox" id="hindi" name="knownLanguage" value="hindi">
                     </div>
                     <div class="formfield">
                         <label class="formlabel" for="address">Address:</label>
-                        <textarea placeholder="Enter address"></textarea>
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="District">District:</label>
-                        <textarea placeholder="Enter district"></textarea><br>
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="state">State:</label>
-                        <input type="text" id="state" name="state" placeholder="Enter state">
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="country">Country:</label>
-                        <input type="text" id="country" name="country" placeholder="Enter country"><br>
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="pinCode">Pin Code:</label>
-                        <input type="text" id="pinCode" name="pinCode" placeholder="Enter pin code">
+                        <textarea id="address" name="address" placeholder="Enter address"></textarea>
                     </div>
                     <div class="formfield">
                         <label class="formlabel" for="course">Course Applied for:</label>
@@ -98,14 +70,6 @@
                             <option value="commerce">Com</option>
                             <option value="art">Art</option>
                         </select><br>
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="email">Email:</label>
-                        <input type="text" id="email" name="email" placeholder="Enter e-mail">
-                    </div>
-                    <div class="formfield">
-                        <label class="formlabel" for="password">Password:</label>
-                        <input type="text" id="password" name="password" placeholder="Enter password"><br>
                     </div>
                 </form>
                 <div class="form-button">
@@ -130,7 +94,7 @@
         </footer>
     </div>
 
-<script src="formCRUD.js"></script>
+    <script src="formCRUD.js"></script>
 </body>
 
 </html>
