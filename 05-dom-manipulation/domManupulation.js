@@ -1,11 +1,9 @@
-const dataList=[]
-
 document.getElementById("add-new-data").addEventListener("click", appendForm);
 
 function appendForm() {
 
     console.log("append function called")
-   
+
 
 
     document.getElementById('main').innerHTML = `<h2 class="form-heading">Student Form</h2>
@@ -58,7 +56,7 @@ function appendForm() {
         </div>
     </form>
         `
-        document.getElementById("formSubmit").addEventListener("click", getFormData);
+    document.getElementById("formSubmit").addEventListener("click", getFormData);
 
 }
 
@@ -66,11 +64,14 @@ function appendForm() {
 document.getElementById("get-data").addEventListener("click", getData);
 
 function getData() {
-
-    document.getElementById('main').innerHTML = ""
-
+    // localStorage.setItem("localDataList", stringifyDataList)
+    const getStringifyDataList = localStorage.getItem("localDataList")
+    const parsedDataList = JSON.parse(getStringifyDataList)
+    console.log("parsedDataList", parsedDataList)
+    document.getElementById('main').innerHTML = "Data List"
+    
 }
-
+getData()
 
 
 function getFormData(e) {
@@ -105,10 +106,11 @@ function getFormData(e) {
         course: courseValue,
         knownLanguage: knownLanguage,
         address: addressValue
-
-
     }
-    console.log("formdata", formData)
+
+    const dataList = []
     dataList.push(formData)
-    console.log("dataList",dataList)
+    const stringifyDataList = JSON.stringify(dataList)
+    localStorage.setItem("localDataList", stringifyDataList)
+    getData()
 }
