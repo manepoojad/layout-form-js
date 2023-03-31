@@ -68,7 +68,32 @@ function getData() {
     const getStringifyDataList = localStorage.getItem("localDataList")
     const parsedDataList = JSON.parse(getStringifyDataList)
     console.log("parsedDataList", parsedDataList)
-    document.getElementById('main').innerHTML = "Data List"
+    document.getElementById('main').innerHTML = `
+    <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Gender</th>
+        <th>Known Langauge</th>
+        <th>Address</th>
+        <th>Course Applied</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pooja</td>
+        <td>Sonwane</td>
+        <td>19/06/1998</td>
+        <td>Female</td>
+        <td>English,Marathi,Hindi</td>
+        <td>T.V Center</td>
+        <td>JavaScript</td>
+      </tr>
+  </tbody>
+  </table>
+    `
     
 }
 getData()
