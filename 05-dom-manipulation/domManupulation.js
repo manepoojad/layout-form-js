@@ -60,7 +60,6 @@ function appendForm() {
 
 }
 
-
 document.getElementById("get-data").addEventListener("click", getData);
 
 function getData() {
@@ -86,14 +85,13 @@ function getData() {
   </tbody>
   </table>
     `
-
     let tableBodyData = ""
     for (let i = 0; i < parsedDataList.length; i++) {
         const dataObject = parsedDataList[i];
         console.log("dataObject", dataObject)
 
         const firstNameValue = dataObject.firstName;
-        tableBodyData = `<tr>
+        tableBodyData = tableBodyData + `<tr>
            <td>${firstNameValue}</td>
            <td>${dataObject.lastName}</td>
            <td>${dataObject.dateOfBirth}</td>
@@ -130,6 +128,7 @@ function getFormData(e) {
         knownLanguage.push(checkbox.value);
     });
 
+    // debugger
     let courseValue = document.getElementById("course").value;
 
     let addressValue = document.getElementById("address").value;
@@ -144,7 +143,10 @@ function getFormData(e) {
         address: addressValue
     }
 
-    const dataList = []
+    const localStringifyDataList = localStorage.getItem("localDataList")
+
+
+    const dataList = JSON.parse(localStringifyDataList)
     dataList.push(formData)
     const stringifyDataList = JSON.stringify(dataList)
     localStorage.setItem("localDataList", stringifyDataList)
