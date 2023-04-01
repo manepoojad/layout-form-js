@@ -81,20 +81,31 @@ function getData() {
         <th>Course Applied</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Pooja</td>
-        <td>Sonwane</td>
-        <td>19/06/1998</td>
-        <td>Female</td>
-        <td>English,Marathi,Hindi</td>
-        <td>T.V Center</td>
-        <td>JavaScript</td>
-      </tr>
+    <tbody id="tableBody">
+
   </tbody>
   </table>
     `
-    
+
+    let tableBodyData = ""
+    for (let i = 0; i < parsedDataList.length; i++) {
+        const dataObject = parsedDataList[i];
+        console.log("dataObject", dataObject)
+
+        const firstNameValue = dataObject.firstName;
+        tableBodyData = `<tr>
+           <td>${firstNameValue}</td>
+           <td>${dataObject.lastName}</td>
+           <td>${dataObject.dateOfBirth}</td>
+           <td>${dataObject.gender}</td>
+           <td>${dataObject.knownLanguage}</td>
+           <td>${dataObject.address}</td>
+           <td>${dataObject.course}</td>
+         </tr>`
+
+    }
+
+    document.getElementById("tableBody").innerHTML = tableBodyData
 }
 getData()
 
@@ -139,3 +150,4 @@ function getFormData(e) {
     localStorage.setItem("localDataList", stringifyDataList)
     getData()
 }
+
