@@ -1,6 +1,6 @@
 "use strict";
 console.log("This is test file")
-let fruit = "apple";
+let fruit = "banana";
 // console.log("fruit",fruit)
 const special = fruit
 // console.log("special",special)
@@ -10,11 +10,11 @@ const special = fruit
 
 
 
-test()
-function test() {
-    console.log("This is function test")
-}
 // test()
+function test(myVariable) {
+    console.log("This is function test",myVariable)
+}
+test(fruit)
 
 const myTest = () => {
     console.log("This is arrow function myTest")

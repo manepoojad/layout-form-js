@@ -64,8 +64,8 @@ document.getElementById("get-data").addEventListener("click", getData);
 
 function getData() {
     // localStorage.setItem("localDataList", stringifyDataList)
-    const getStringifyDataList = localStorage.getItem("localDataList")
-    const parsedDataList = JSON.parse(getStringifyDataList)
+    const stringifyDataList = localStorage.getItem("localDataList")
+    const parsedDataList = JSON.parse(stringifyDataList)
     console.log("parsedDataList", parsedDataList)
     document.getElementById('main').innerHTML = `
     <table>
@@ -77,7 +77,9 @@ function getData() {
         <th>Gender</th>
         <th>Known Langauge</th>
         <th>Address</th>
-        <th>Course Applied</th>
+        <th>Course</th>
+        <th>Action</th>
+
       </tr>
     </thead>
     <tbody id="tableBody">
@@ -99,9 +101,11 @@ function getData() {
            <td>${dataObject.knownLanguage}</td>
            <td>${dataObject.address}</td>
            <td>${dataObject.course}</td>
+           <td><button onclick="deleteRecord(${i})">Delete</button></td>
          </tr>`
 
     }
+
 
     document.getElementById("tableBody").innerHTML = tableBodyData
 }
@@ -152,4 +156,24 @@ function getFormData(e) {
     localStorage.setItem("localDataList", stringifyDataList)
     getData()
 }
+
+
+function deleteRecord(index) {
+    console.log("deleteRecord", index)
+    const allRecordsString = localStorage.getItem("localDataList")
+    const parsedDataList = JSON.parse(allRecordsString)
+    console.log(parsedDataList)
+
+    function callBack(currentValue, ind, arr) {
+        console.log("This is callBack function", currentValue, ind, arr)
+    }
+    const a = parsedDataList.filter(callBack)
+    console.log(a)
+
+
+
+}
+
+
+
 
