@@ -18,6 +18,14 @@ test(fruit)
 
 const myTest = () => {
     console.log("This is arrow function myTest")
+
+    return "pooja"
 }
-// myTest()
+
+ const myTestValue = myTest()
+ console.log("myTestValue",myTestValue)
+
+ 
+ 
+
 

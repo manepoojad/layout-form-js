@@ -2,10 +2,6 @@ document.getElementById("add-new-data").addEventListener("click", appendForm);
 
 function appendForm() {
 
-    console.log("append function called")
-
-
-
     document.getElementById('main').innerHTML = `<h2 class="form-heading">Student Form</h2>
     <form class="form-section">
         <div class="formfield">
@@ -66,7 +62,6 @@ function getData() {
     // localStorage.setItem("localDataList", stringifyDataList)
     const stringifyDataList = localStorage.getItem("localDataList")
     const parsedDataList = JSON.parse(stringifyDataList)
-    console.log("parsedDataList", parsedDataList)
     document.getElementById('main').innerHTML = `
     <table>
     <thead>
@@ -90,7 +85,6 @@ function getData() {
     let tableBodyData = ""
     for (let i = 0; i < parsedDataList.length; i++) {
         const dataObject = parsedDataList[i];
-        console.log("dataObject", dataObject)
 
         const firstNameValue = dataObject.firstName;
         tableBodyData = tableBodyData + `<tr>
@@ -159,17 +153,23 @@ function getFormData(e) {
 
 
 function deleteRecord(index) {
-    console.log("deleteRecord", index)
     const allRecordsString = localStorage.getItem("localDataList")
     const parsedDataList = JSON.parse(allRecordsString)
-    console.log(parsedDataList)
 
     function callBack(currentValue, ind, arr) {
-        console.log("This is callBack function", currentValue, ind, arr)
-    }
-    const a = parsedDataList.filter(callBack)
-    console.log(a)
+        if (ind != index) {
+            return true;
+        }
+        else {
+            return false;
 
+        }
+
+    }
+    const newRecordList = parsedDataList.filter(callBack)
+    const newStringifyRecordList = JSON.stringify(newRecordList)
+    localStorage.setItem("localDataList", newStringifyRecordList)
+    getData()
 
 
 }
