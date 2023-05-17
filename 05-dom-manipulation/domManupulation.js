@@ -83,7 +83,7 @@ function getData() {
     let tableBodyData = ""
     for (let i = 0; i < parsedDataList.length; i++) {
         const dataObject = parsedDataList[i];
-
+        debugger
         const firstNameValue = dataObject.firstName;
         tableBodyData = tableBodyData + `<tr>
            <td>${firstNameValue}</td>
@@ -150,16 +150,25 @@ function deleteRecord(index) {
     const allRecordsString = localStorage.getItem("localDataList")
     const parsedDataList = JSON.parse(allRecordsString)
 
+    /*
     function callBack(currentValue, ind, arr) {
         if (ind != index) {
             return true;
         }
         else {
             return false;
-
         }
     }
     const newRecordList = parsedDataList.filter(callBack)
+    */
+    const newRecordList = parsedDataList.filter((currentValue, ind, arr) => {
+        if (ind != index) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
     const newStringifyRecordList = JSON.stringify(newRecordList)
     localStorage.setItem("localDataList", newStringifyRecordList)
     getData()
@@ -297,6 +306,15 @@ function updateFormData(e, index) {
     localStorage.setItem("localDataList", stringifyDataList)
     getData()
 }
+
+// const surName = "Mane"
+// const firstName = "Pooja"
+// const fullName = firstName + " " + surName
+// console.log(fullName);
+// const completeName = `${firstName} ${surName}`
+// console.log(completeName)
+
+
 
 
 
