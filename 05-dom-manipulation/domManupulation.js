@@ -307,12 +307,18 @@ function updateFormData(e, index) {
     getData()
 }
 
-// const surName = "Mane"
-// const firstName = "Pooja"
-// const fullName = firstName + " " + surName
-// console.log(fullName);
-// const completeName = `${firstName} ${surName}`
-// console.log(completeName)
+
+document.getElementById("json-placeholder").addEventListener("click", showJsonPlaceholderData);
+
+ async function showJsonPlaceholderData() {
+    // fetch('https://jsonplaceholder.typicode.com/posts')
+    //     .then((response) => response.json())
+    //     .then((json) => console.log(json));
+
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+ const responseData = await response.json()
+ console.log(responseData)
+}
 
 
 
