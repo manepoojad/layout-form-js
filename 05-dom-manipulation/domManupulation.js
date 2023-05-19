@@ -83,7 +83,7 @@ function getData() {
     let tableBodyData = ""
     for (let i = 0; i < parsedDataList.length; i++) {
         const dataObject = parsedDataList[i];
-        debugger
+        // debugger
         const firstNameValue = dataObject.firstName;
         tableBodyData = tableBodyData + `<tr>
            <td>${firstNameValue}</td>
@@ -307,22 +307,43 @@ function updateFormData(e, index) {
     getData()
 }
 
-
 document.getElementById("json-placeholder").addEventListener("click", showJsonPlaceholderData);
 
- async function showJsonPlaceholderData() {
+async function showJsonPlaceholderData() {
     // fetch('https://jsonplaceholder.typicode.com/posts')
     //     .then((response) => response.json())
     //     .then((json) => console.log(json));
 
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
- const responseData = await response.json()
- console.log(responseData)
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const responseDataList = await response.json()
+    // console.log(responseDataList)
+    document.getElementById('main').innerHTML = `
+        <table>
+        <thead>
+          <tr>
+            <th>UserId</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+          </tr>
+        </thead>
+        <tbody id="jsonPlaceholderBody">
+        </tbody>
+        </table>
+        `
+    let jsonPlaceholderBodyData = ""
+    for (let i = 0; i < responseDataList.length; i++) {
+        const jsonDataObject = responseDataList[i];
+        // debugger
+        let userId = jsonDataObject.userId;
+        jsonPlaceholderBodyData = jsonPlaceholderBodyData + `<tr>
+           <td>${jsonDataObject.userId}</td>
+           <td>${jsonDataObject.id}</td>
+           <td>${jsonDataObject.title}</td>
+           <td>${jsonDataObject.body}</td>
+            </tr>
+           `
+    }
+
+    document.getElementById("jsonPlaceholderBody").innerHTML = jsonPlaceholderBodyData
 }
-
-
-
-
-
-
-
