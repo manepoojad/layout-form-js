@@ -310,12 +310,43 @@ function updateFormData(e, index) {
 document.getElementById("json-placeholder").addEventListener("click", showJsonPlaceholderData);
 
 async function showJsonPlaceholderData() {
+    /** 
+     * @method ==> string
+     * GET ==> to get data
+     * POST ==> to sent data 
+     * PUT ==> to update data
+     * DELETE ==> to delete data
+     */
+
+    /** 
+     * @body
+     * not applicable to GET, DELETE request method
+     */
+
+    /**
+     * @headers ==> object
+     * Content-Type: "application/json"
+     */
+
+
     // fetch('https://jsonplaceholder.typicode.com/posts')
     //     .then((response) => response.json())
     //     .then((json) => console.log(json));
 
+
+    // const response = await fetch('https://jsonplaceholder.typicode.com/posts',
+    //     {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     }
+    // )
+
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     const responseDataList = await response.json()
+
+
     // console.log(responseDataList)
     document.getElementById('main').innerHTML = `
         <table>
