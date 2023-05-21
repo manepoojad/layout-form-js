@@ -83,7 +83,10 @@ async function getData() {
         `
     let tableBodyData = ""
     for (let i = 0; i < responseDataList.length; i++) {
+        debugger
         const dataObject = responseDataList[i];
+        const id = dataObject.id
+        const stringifyData = JSON.stringify(dataObject)
         tableBodyData = tableBodyData + `<tr>
                <td>${dataObject.date}</td>
                <td>${dataObject.title}</td>
@@ -92,8 +95,8 @@ async function getData() {
                <td>${dataObject.technology.backEndTech}</td>
                <td>${JSON.stringify(dataObject.library)}</td>
                <td>
-               <button onclick="deleteRecord(${i})">Delete</button>
-               <button onclick="editRecord(${i})">Edit</button>
+               <button onclick="deleteRecord('${id}')">Delete</button>
+               <button onclick='editRecord(${stringifyData})'>Edit</button>
                </td>
               
              </tr>`
@@ -163,3 +166,79 @@ async function getProjectData(e) {
     getData()
 }
 
+async function deleteRecord(id) {
+    console.log(id)
+    const response = await fetch(`http://localhost:8888/project/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+
+    })
+    const responseData = await response.json()
+    getData()
+
+}
+
+
+function editRecord(dataObject) {
+    console.log(dataObject)
+
+    document.getElementById('main').innerHTML = `<h2 class="form-heading">Update Project Data</h2>
+    <form class="form-section">
+        <div class="formfield">
+            <label class="formlabel" for="date">Date:</label>
+            <input type="date" id="date" name="date" placeholder="yyyy-mm-dd">
+        </div>
+        <div class="formfield">
+            <label class="formlabel" for="projectTitle">Project Title:</label>
+            <input type="text" id="projectTitle" name="projectTitle" placeholder="Enter Project Title">
+        </div>
+        <div class="formfield">
+            <label class="formlabel" for="projectDescription">Project Description:</label>
+            <textarea id="projectdescription" name="projectDescription"></textarea>
+        </div>
+        <div class="formfield">
+            <label class="formlabel" for="uiTechnology">UI Technology:</label>
+            <select name="uiTechnology" id="uiTechnology">
+                <option value="select">Select</option>
+                <option value="react">React</option>
+                <option value="angular">Angular</option>
+                <option value="flutter">Flutter</option>
+                <option value="vue.Js">Vue.js</option>
+
+            </select><br>
+        </div>
+        <div class="formfield">
+            <label class="formlabel" for="backendtechnology">Back-End Technology:</label>
+            <label for="python">Python</label>
+            <input type="radio" id="python" name="backendtechnology" value="python">
+            <label for="net">.NET</label>
+            <input type="radio" id="net" name="backendtechnology" value="net">
+            <label for="php">PHP</label>
+            <input type="radio" id="php" name="backendtechnology" value="php"><br>
+        </div>
+        <div class="formfield">
+            <label class="formlabel" for="libraryUsed">Library Used:</label>
+            <label for="redux">Redux</label>
+            <input type="checkbox" id="redux" name="libraryUsed" value="redux">
+            <label for="saga">Saga</label>
+            <input type="checkbox" id="saga" name="libraryUsed" value="saga">
+            <label for="numpy">Numpy</label>
+            <input type="checkbox" id="numpy" name="libraryUsed" value="numpy">
+            <label for="pandas">Pandas</label>
+            <input type="checkbox" id="pandas" name="libraryUsed" value="pandas">
+
+        </div>
+        <div class="form-button">
+            <input type="submit" id="formSubmit" value="Add">
+            <input type="Reset" value="Reset">
+            <input type="button" value="Cancel">
+        </div>
+    </form>
+    `
+
+
+
+
+}
