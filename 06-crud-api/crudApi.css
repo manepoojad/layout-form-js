@@ -1,0 +1,90 @@
+.wrapper{
+    display: flex;
+    /* flex-flow: column nowrap; */
+    flex-direction: column ;
+    flex-wrap: nowrap;
+}
+
+
+.header{
+    background-color: orange;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.section{
+    background-color: grey;
+    display: flex;
+    height: 500px;
+}
+
+.left-navigation{
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    width: 15%;
+}
+
+.main{
+    padding: 10px;
+    width: 70%;
+    overflow: auto;
+}
+
+.form-heading{
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+}
+
+
+.form-section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formfield{
+    display: flex;
+    width: 400px;
+    margin: 10px;
+
+}
+
+.formlabel{
+    width: 40%;
+}
+
+
+.form-button{
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+
+
+
+
+.right-navigation{
+    background-color: lightblue;
+    width:15% ;
+}
+
+
+.right-navigation-heading{
+    padding: 10px;
+}
+
+
+.footer{
+    background-color: green;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
