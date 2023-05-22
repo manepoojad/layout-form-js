@@ -59,7 +59,6 @@ function appendForm() {
 document.getElementById("get-data").addEventListener("click", getData);
 
 async function getData() {
-    // localStorage.setItem("localDataList", stringifyDataList)
     const response = await fetch('http://localhost:8888/project')
     const responseDataList = await response.json()
     console.log(responseDataList)
@@ -125,7 +124,7 @@ async function getProjectData(e) {
 
 
     function getLibrary() {
-        let reduxValue, sagaValue, numpyValue;
+        let reduxValue, sagaValue, numpyValue, pandasValue;
         reduxValue = document.getElementById('redux').checked;
         sagaValue = document.getElementById('saga').checked;
         numpyValue = document.getElementById('numpy').checked;
@@ -140,7 +139,6 @@ async function getProjectData(e) {
         }
         return library
     }
-
 
     const formData = {
         title: projectTitle,
@@ -179,7 +177,6 @@ async function deleteRecord(id) {
     getData()
 
 }
-
 
 function editRecord(dataObject) {
     console.log(dataObject)
@@ -231,14 +228,116 @@ function editRecord(dataObject) {
 
         </div>
         <div class="form-button">
-            <input type="submit" id="formSubmit" value="Add">
+            <input type="button" id="formUpdate" value="Update">
             <input type="Reset" value="Reset">
             <input type="button" value="Cancel">
+          
+
         </div>
     </form>
     `
+    const id = dataObject.id
+    document.getElementById("formUpdate").addEventListener("click", (e) => { updateFormData(e, id) });
+
+    // const date = dataObject.date
+    // const title = dataObject.title
+    // const description = dataObject.description
+    const { date, title, description } = dataObject
+    // const dataObject1 = {
+    //     date: "abc",
+    //     title: "dfg",
+    //     description: "cvb"
+    // }
+    document.getElementById("date").value = date
+    document.getElementById("projectTitle").value = title
+    document.getElementById("projectdescription").value = description
+    document.getElementById("uiTechnology").value = dataObject.technology.uiTech
 
 
+    function addBackEndTechnologyInForm() {
+        const backEndTechnologyValue = dataObject.technology.backEndTech
+        console.log(backEndTechnologyValue)
+        if (backEndTechnologyValue == "python") {
+            document.getElementById("python").checked = true
+        }
+        else if (backEndTechnologyValue == "net") {
+            document.getElementById("net").checked = true
+        }
+        else if (backEndTechnologyValue == "php") {
+            document.getElementById("php").checked = true
+        }
+    }
+    addBackEndTechnologyInForm()
+
+    function addLibraryInForm() {
+
+        const libraryUsed = dataObject.library
+        console.log(libraryUsed)
+
+        document.getElementById('redux').checked = libraryUsed.redux
+        document.getElementById('saga').checked = libraryUsed.saga
+        document.getElementById('numpy').checked = libraryUsed.numpy
+        document.getElementById('pandas').checked = libraryUsed.pandas
+
+    }
+    addLibraryInForm()
+}
+async function updateFormData(e, id) {
+    e.preventDefault()
+    debugger
+    let date = document.getElementById("date").value;
+    let projectTitle = document.getElementById("projectTitle").value;
+    let projectDescription = document.getElementById("projectdescription").value;
+    let uiTechnology = document.getElementById("uiTechnology").value;
+    let backEndTechnology = document.querySelector('input[name = backendtechnology]:checked');
+    let backEndTechnologyValue = ""
+    if (backEndTechnology) {
+        backEndTechnologyValue = backEndTechnology.value;
+    }
+    let checkboxes = document.querySelectorAll('input[name="libraryUsed"]:checked');
+    let libraryUsed = [];
+    checkboxes.forEach((checkbox) => {
+        libraryUsed.push(checkbox.value);
+    });
+
+    function getLibrary() {
+        let reduxValue, sagaValue, numpyValue, pandasValue;
+        reduxValue = document.getElementById('redux').checked;
+        sagaValue = document.getElementById('saga').checked;
+        numpyValue = document.getElementById('numpy').checked;
+        pandasValue = document.getElementById('pandas').checked;
+
+        const library = {
+            redux: reduxValue,
+            saga: sagaValue,
+            numpy: numpyValue,
+            pandas: pandasValue
+
+        }
+        return library
+    }
 
 
+    const formData = {
+        id: id,
+        title: projectTitle,
+        date: date,
+        description: projectDescription,
+        technology: {
+            uiTech: uiTechnology,
+            backEndTech: backEndTechnologyValue
+        },
+        library: getLibrary()
+    }
+    console.log(formData)
+    const response = await fetch('http://localhost:8888/project', {
+        method: "PUT",
+        body: JSON.stringify(formData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const responseData = await response.json()
+    getData()
 }
