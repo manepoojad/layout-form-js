@@ -30,6 +30,49 @@ const learnArrowFunction = () => {
 const learnArrowFunctionValue = learnArrowFunction()
 console.log("learnArrowFunctionValue", learnArrowFunctionValue)
 
+class User {
+  constructor(firstName, middleName, surname, age) {
+    this.firstName = firstName;
+    this.middleName = middleName;
+    this.lastName = surname;
+    this.age = age;
+  }
+  getFullName() {
+    const fullName = this.firstName + " " + this.middleName + " " + this.lastName;
+    // console.log(fullName);
+    return fullName;
+  }
+
+
+  getFamilyInfo() {
+    const fullName = this.getFullName();
+    const userInfo = {
+      fullName: fullName,
+      age: this.age,
+    };
+    // console.log(userInfo)
+    return userInfo;
+  }
+}
+
+const poojaDetail = new User("Pooja", "Devidas", "Mane", 24);
+// const poojaFullName = poojaDetail.getFullName();
+// console.log(poojaFullName);
+const poojaFamilyInfo = poojaDetail.getFamilyInfo();
+console.log("poojaFamilyInfo", poojaFamilyInfo);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const myPromise = new Promise(function (myResolve, myReject) {
@@ -41,6 +84,8 @@ myPromise.then(function (value) {
   console.log("promise value", value)
 });
 console.log(myPromise)
+
+
 
 
 
